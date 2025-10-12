@@ -1,4 +1,7 @@
 Tuần 1: 
 	+ Tạo Repository Github
+	+ Tìm hiểu ASPNET	
 	+ Khởi tạo source
+	+ Ráp giao diện người dùng
+	
 	
