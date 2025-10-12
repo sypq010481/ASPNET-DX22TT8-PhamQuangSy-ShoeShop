@@ -1,0 +1,60 @@
+﻿<nav class="colorlib-nav" role="navigation">
+	<div class="top-menu">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7 col-md-9">
+					<div id="colorlib-logo"><a href="/">Shoe Shop</a></div>
+				</div>
+				<div class="col-sm-5 col-md-3">
+					<form action="#" class="search-wrap">
+						<div class="form-group">
+							<input type="search" class="form-control search" placeholder="Tìm kiếm">
+							<button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-left menu-1">
+					<ul>
+						<li class="active"><a href="/">Trang chủ</a></li>
+						<li class="has-dropdown">
+							<a asp-controller="Product" asp-action="Index">Sản phẩm</a>
+							<ul class="dropdown">								
+								<li><a href="/">Nike</a></li>
+								<li><a href="/">Adidas</a></li>
+								<li><a href="/">Puma</a></li>
+								<li><a href="/">Converse</a></li>
+							</ul>
+						</li>						
+						<li><a href="/About">Giới thiệu</a></li>
+						<li><a href="/Contact">Liên hệ</a></li>
+						<li class="cart"><a asp-action="Index" asp-controller="Cart"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sale">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 offset-sm-2 text-center">
+					<div class="row">
+						<div class="owl-carousel2">
+							<div class="item">
+								<div class="col">
+									<h3><a href="#">Bạn muốn mua giày xịn có shop shoe lo!</a></h3>
+								</div>
+							</div>
+							<div class="item">
+								<div class="col">
+									<h3><a href="#">Giày đẹp - Khuyến mãi khủng</a></h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
