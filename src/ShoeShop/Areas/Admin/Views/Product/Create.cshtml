@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> THÊM SẢN PHẨM</h4>    
+    <div class="row">
+        <div class="col-xl">
+            <div class="card mb-4">                
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Tên Sản phẩm</label>
+                            <input type="text" class="form-control" id="basic-default-fullname" placeholder="Nhập tên danh mục" />
+                        </div>
+                        <div>
+                            <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlSelect1" class="form-label">Thương hiệu</label>
+                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Hình ảnh</label>
+                            <input class="form-control" type="file" id="formFile" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Trạng thái</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input float-start" type="checkbox" role="switch" checked />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Tạo mới</button>
+                        <a href="@Url.Action("Index", "Product")" class="btn btn-outline-secondary">Trở về</a>
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

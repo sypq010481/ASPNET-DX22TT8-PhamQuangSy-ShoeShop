@@ -4,4 +4,8 @@ Tuần 1:
 	+ Khởi tạo source
 	+ Ráp giao diện người dùng
 	
-	
+Tuần 2:
+	+ Ráp giao diện trang quản trị
+	  - Login
+	  - Danh mục
+	  - Sản phẩm	

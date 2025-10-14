@@ -1,173 +1,193 @@
-# [Material Dashboard 3](http://demos.creative-tim.com/material-dashboard/pages/dashboard.html?ref=readme-md2) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?url=https://www.creative-tim.com/product/material-dashboard&text=Check%20Material%20Dashboard%202%20made%20by%20@CreativeTim%20#webdesign%20#dashboard%20#materialdesign%20#html%20https://www.creative-tim.com/product/material-dashboard) [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/FhCJCaHdQa)
+<p align="center">
+   <a href="https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/" target="_blank">
+      <img src="https://user-images.githubusercontent.com/749684/150333149-805037bc-8874-4a1f-876a-61a9683f8ef5.png" alt="sneat-logo" width="30px" height="auto">
+   </a>
+</p>
 
-![version](https://img.shields.io/badge/version-3.2.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/material-dashboard.svg)](https://github.com/creativetimofficial/material-dashboard/issues?q=is%3Aopen+is%3Aissue) [![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/material-dashboard.svg)](https://github.com/creativetimofficial/material-dashboard/issues?q=is%3Aissue+is%3Aclosed)
+<h1 align="center">
+   <a href="https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/" target="_blank" align="center">
+      Sneat - Free Bootstrap 5 HTML Admin Template
+   </a>
+</h1>
 
-![Image](https://s3.amazonaws.com/creativetim_bucket/products/50/original/material-dashboard.jpg?1634648873)
+<p align="center">Most Powerful & Comprehensive Free Bootstrap 5 HTML Admin Dashboard Template built for developers!</p>
 
-[Material Dashboard](https://www.creative-tim.com/product/material-dashboard) is a free Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design. We are very excited to introduce our take on the material concepts through an easy to use and beautiful set of components. Material Dashboard was built over the popular Bootstrap framework and it comes with a couple of third-party plugins redesigned to fit in with the rest of the elements.
+![GitHub](https://img.shields.io/github/license/themeselection/sneat-html-admin-template-free) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/themeselection/sneat-html-admin-template-free) ![GitHub issues](https://img.shields.io/github/issues/themeselection/sneat-html-admin-template-free) ![GitHub closed issues](https://img.shields.io/github/issues-closed/themeselection/sneat-html-admin-template-free) ![Twitter Follow](https://img.shields.io/twitter/follow/Theme_Selection?style=social)
 
-Material Dashboard makes use of light, surface and movement. The general layout resembles sheets of paper following multiple different layers, so that the depth and order is obvious. The navigation stays mainly on the left sidebar and the content is on the right inside the main panel.
+[![Sneat - Bootstrap 5 HTML Admin Template Demo Screenshot](https://user-images.githubusercontent.com/80033712/153581472-452394ee-327a-4d00-a41a-c6e8036b7096.png)](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/)
 
-This product came as a result of users asking for a material dashboard after we released our successful [Material Kit](https://www.creative-tim.com/product/material-kit). We developed it based on your feedback and it is a powerful bootstrap admin dashboard, which allows you to build products like admin panels, content managements systems and CRMs.
+## Introduction 🚀
 
-Material Dashboard comes with 5 color filter choices for both the sidebar and the card headers (blue, green, orange, red and purple) and an option to have a background image on the sidebar.
+If you’re a developer looking for most Powerful & comprehensive [**Free Bootstrap 5 HTML Admin Template**](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/) built for developers, rich with features, and highly customizable look no further than Sneat. We’ve followed the highest industry standards to bring you the very best admin template that is not only fast and easy to use but highly scalable. Offering ultimate convenience and flexibility, you’ll be able to build whatever application you want with very little hassle.
 
-Special thanks go to:
+Build premium quality applications with ease. Use our innovative [bootstrap admin templates](https://themeselection.com/products/category/bootstrap-admin-templates/) to create eye-catching, high-quality WebApps. Your apps will be completely responsive, ensuring they’ll look stunning and function flawlessly on desktops, tablets, and mobile devices.
 
-- [Robert McIntosh](https://github.com/mouse0270/bootstrap-notify) for the notification system.
-- [Chartist](https://gionkunz.github.io/chartist-js/) for the wonderful charts.
-  We are very excited to share this dashboard with you and we look forward to hearing your feedback!
-- [Nepcha Analytics](https://nepcha.com?ref=readme) for the analytics tool. Nepcha is already integrated with Material Dashboard. You can use it to gain insights into your sources of traffic.
+[View Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/html/)
 
-## Table of Contents
+## Installation ⚒️
 
-- [Material Dashboard 2 ](#material-dashboard-2--)
-  - [Table of Contents](#table-of-contents)
-  - [Versions](#versions)
-  - [Demo](#demo)
-  - [Quick start](#quick-start)
-  - [Deploy](#deploy)
-  - [Documentation](#documentation)
-  - [File Structure](#file-structure)
-  - [Browser Support](#browser-support)
-  - [Resources](#resources)
-  - [Reporting Issues](#reporting-issues)
-  - [Upgrade to Premium version](#upgrade-to-premium-version)
-  - [Technical Support or Questions](#technical-support-or-questions)
-  - [Licensing](#licensing)
-  - [Useful Links](#useful-links) - [Social Media](#social-media)
+Automate time-consuming or repetitive tasks in your development workflow using Gulp 🥤
 
-## Versions
+> Please note, the use of Node, Webpack & Gulp and their advanced settings are totally optional. You can use and customize the template without using them too.
 
-[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/html-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard)[<img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/figma-logo.jpg" width="60" height="60" />](https://www.creative-tim.com/product/material-tailwind-dashboard-react) [<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-react)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/vue-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vue-material-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/angular-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-angular2)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/react-native-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-kit-react-native)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/laravel-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-laravel)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/vuetify-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/vuetify-material-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/django-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-django)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nextjs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/nextjs-material-dashboard)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/flask-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-flask)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/aspnet-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-react-asp-net)[<img src="https://github.com/creativetimofficial/public-assets/blob/master/logos/nodejs-logo.jpg?raw=true" width="60" height="60" />](https://www.creative-tim.com/product/material-dashboard-react-nodejs)
+Installing Node & Gulp and running it is super easy in Sneat, please follow these steps and you should be ready to rock 🤘
 
-| Bootstrap 5                                                                                                                                                                                | Bootstrap 4                                                                                                                                                                                           | Bootstrap 3                                                                                                                                                                                          | Dark HTML                                                                                                                                                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Material Dashboard  HTML](https://s3.amazonaws.com/creativetim_bucket/products/50/original/material-dashboard.jpg?1634648873)](https://www.creative-tim.com/product/material-dashboard) | [![Material Dashboard  Bootstrap 4](https://s3.amazonaws.com/creativetim_bucket/products/537/original/opt_md_thumbnail.jpeg?1634047548)](https://www.creative-tim.com/product/material-dashboard-bs4) | [![Material Dashboard  Bootstrap 3](https://s3.amazonaws.com/creativetim_bucket/products/78/original/opt_mdp_thumbnail.jpg?1521133551)](https://www.creative-tim.com/product/material-dashboard-bs4) | [![Material Dashboard Dark Edition](https://s3.amazonaws.com/creativetim_bucket/products/95/original/opt_mdb_thumbnail.jpg?1535551949)](https://www.creative-tim.com/product/material-dashboard-dark) |
+1. First of all, make sure you have installed [Node](https://nodejs.org/en/) (LTS). If Node.js is already installed in your system, make sure the installed version is `LTS` and jump to step 2
 
-| React                                                                                                                                                                                                                      | Tailwind                                                                                                                                                                                                        | Vue                                                                                                                                                                                            | Angular                                                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [![Material Dashboard  React](https://s3.amazonaws.com/creativetim_bucket/products/488/original/material-tailwind-react-dashboard.jpg?1667367968)](https://www.creative-tim.com/product/material-tailwind-dashboard-react) | [![Material Tailwind Dashboard React](https://s3.amazonaws.com/creativetim_bucket/products/71/original/material-dashboard-react.jpg?1638950990)](https://www.creative-tim.com/product/material-dashboard-react) | [![Vue Material Dashboard](https://s3.amazonaws.com/creativetim_bucket/products/81/original/opt_md_vue_thumbnail.jpg?1534938464)](https://www.creative-tim.com/product/vue-material-dashboard) | [![Material Dashboard  Angular](https://s3.amazonaws.com/creativetim_bucket/products/53/original/opt_md_angular_thumbnail.jpg?1551358074)](https://www.creative-tim.com/product/material-dashboard-angular2) |
+2. Install the Gulp CLI: Open Terminal/Command Prompt and run the following command and wait until it finishes. If you have already installed Gulp CLI, you can skip this step and jump to step 3.
 
-| Vuetify                                                                                                                                                                                           | React Native                                                                                                                                                                | Nextjs                                                                                                                                                                                        | Nodejs                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Material Dashboard  Vuetify](https://s3.amazonaws.com/creativetim_bucket/products/100/original/opt_md_vuetify_thumbnail.jpg)](https://www.creative-tim.com/product/vuetify-material-dashboard) | [![React Native](https://s3.amazonaws.com/creativetim_bucket/products/144/original/opt_mkrn_thumbnail.jpg)](https://www.creative-tim.com/product/material-kit-react-native) | [![Nextjs Material Dashboard](https://s3.amazonaws.com/creativetim_bucket/products/341/original/opt_md_nextjs_thumbnail.jpg)](https://www.creative-tim.com/product/nextjs-material-dashboard) | [![Material Dashboard React Nodejs](https://s3.amazonaws.com/creativetim_bucket/products/157/original/react-material-dashboard-nodejs.jpg?1680251614)](https://www.creative-tim.com/product/material-dashboard-react-nodejs) |
-
-| Laravel                                                                                                                                                                                                       | Asp.NET                                                                                                                                                                            | Django                                                                                                                                                                                        | Flask                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [![Material Dashboard Laravel](https://s3.amazonaws.com/creativetim_bucket/products/154/original/material-dashboard-laravel.jpg?1664460694)](https://www.creative-tim.com/product/material-dashboard-laravel) | [![Asp.NET](https://s3.amazonaws.com/creativetim_bucket/products/397/original/opt_md_aspnet_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-react-asp-net) | [![Material Dashboard Django](https://s3.amazonaws.com/creativetim_bucket/products/337/original/opt_md_django_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-django) | [![Material Dashboard Flask](https://s3.amazonaws.com/creativetim_bucket/products/338/original/opt_md_flask_thumbnail.jpg)](https://www.creative-tim.com/product/material-dashboard-flask) |
-
-## Demo
-
-- [Start page](https://demos.creative-tim.com/material-dashboard/examples/dashboard.html)
-- [User profile page](https://demos.creative-tim.com/material-dashboard/examples/user.html)
-- [Tables page ](https://demos.creative-tim.com/material-dashboard/examples/tables.html)
-- [Maps Page](https://demos.creative-tim.com/material-dashboard/examples/map.html)
-- [Notifications page](https://demos.creative-tim.com/material-dashboard/examples/notifications.html)
-
-[View More](https://demos.creative-tim.com/material-dashboard/examples/dashboard.html).
-
-## Quick start
-
-- `npm i material-dashboard`
-- Clone the repo: `git clone https://github.com/creativetimofficial/material-dashboard.git`.
-- [Download from Github](https://github.com/creativetimofficial/material-dashboard/archive/master.zip).
-- [Download from Creative Tim](https://www.creative-tim.com/product/material-dashboard).
-
-## Deploy
-
-:rocket: You can deploy your own version of the template to Genezio with one click:
-
-[![Deploy to Genezio](https://raw.githubusercontent.com/Genez-io/graphics/main/svg/deploy-button.svg)](https://app.genez.io/start/deploy?repository=https://github.com/creativetimofficial/material-dashboard&utm_source=github&utm_medium=referral&utm_campaign=github-creativetim&utm_term=deploy-project&utm_content=button-head)
-
-## Documentation
-
-The documentation for the Material Dashboard is hosted at our [website](https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html).
-
-## File Structure
-
-Within the download you'll find the following directories and files:
-
-```
-material-dashboard
-    ├── assets
-    │   ├── css
-    │   ├── fonts
-    │   ├── img
-    │   ├── js
-    │   │   ├── core
-    │   │   ├── plugins
-    │   │   └── material-dashboard.js
-    │   │   └── material-dashboard.js.map
-    │   │   └── material-dashboard.min.js
-    │   └── scss
-    │       ├── material-dashboard
-    │       └── material-dashboard.scss
-    ├── docs
-    │   ├── documentation.html
-    ├── pages
-    ├── CHANGELOG.md
-    ├── gulpfile.mjs
-    ├── package.json
+```bash
+npm install --global gulp-cli
 ```
 
-## Browser Support
+3. Navigate to the Sneat root directory and run following command to install our local dependencies listed in `package.json`. You can use `npm` OR `yarn` as per your preference.
+
+> It is recommended to use Yarn
+
+```bash
+# For npm
+npm install --legacy-peer-deps
+
+# For Yarn
+yarn
+```
+
+4. Now, you are ready to run `npm` tasks, below command will start the server and watch the code using [browsersync](https://browsersync.io/). Open [http://localhost:3000/](http://localhost:3000/) to check your development 🚀.
+
+```bash
+# npm
+npm run serve
+
+# yarn
+yarn serve
+```
+
+## Available Tasks 🧑‍💻
+
+Open console/terminal, go to the Sneat root directory and run `npm run {task_name}`.i.e To generate build run `npm run build`.
+
+Run a task with specified environment(development/production) just execute the task with `--env={environment}` option, i.e. `npm run build --env=production`.
+
+> **Tip:** Use `npm run` command to list all predefined npm tasks from `package.json` file.
+
+## What's Included 📦
+
+- Dashboard
+- Layouts
+  - Without menu
+  - Without Navbar
+  - Container
+  - Fluid
+  - Blank
+- Pages
+  - Account Settings
+  - Login
+  - Register
+  - Forgot Password
+  - Error
+  - Under Maintenance
+- Cards
+- User Interface
+  - **All Bootstrap Components**
+- Extended UI
+  - Perfect Scrollbar
+  - Text Divider
+- Boxicon
+- Form Elements
+  - Basic Inputs
+  - Input Groups
+- Form Layout
+  - Vertical Form
+  - Horizontal Form
+- Tables
+
+## What's in Premium Version 💎
+
+| Sneat Free Version                                                                        | Sneat Premium Version                                                                                                            |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/html/)    | [Demo](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/html/vertical-menu-template/)                         |
+| [Download](https://themeselection.com/products/sneat-free-bootstrap-html-admin-template/) | [Purchase](https://themeselection.com/products/sneat-bootstrap-html-admin-template/)                                             |
+| Single vertical Menu                                                                      | Vertical Menu + Horizontal Menu                                                                                                  |
+| Simple Light Style                                                                        | Light & Dark Style                                                                                                               |
+| Default Theme                                                                             | Default, Semi Dark & Bordered Themes                                                                                             |
+| Fixed Layout(Menu)                                                                        | Fixed & Static Layout(Menu)                                                                                                      |
+| 1 Simple Dashboard                                                                        | 3 Niche Dashboards                                                                                                               |
+| -                                                                                         | Multiple Ready to use Application like Calendar, Invoice, Users List, Users View, Roles and Permission etc.                      |
+| Simple From Elements                                                                      | Advance form elements, validation & form wizard                                                                                  |
+| Basic Cards                                                                               | Basic, Advance , Statistics, Analytics, Gamifications and Actions Cards                                                          |
+| Basic User Interface(Components)                                                          | Advance and Custom User Interfaces(Components)                                                                                   |
+| Two Extended Components                                                                   | Twelve Ready to use Extended Components                                                                                          |
+| -                                                                                         | Quick Search - Quickly navigate between pages (w/ hotkey support)                                                                |
+| Basic Pages                                                                               | Authentication Pages in 2 Variants + Ready to use pages like User Profile, Account Settings,FAQ, Help Center, Pricing, Misc etc. |
+| -                                                                                         | 3D Characters + Illustrations                                                                                                    |
+| Basic tables                                                                              | Advanced tables                                                                                                                  |
+| -                                                                                         | Quick customization using theme config file                                                                                      |
+| -                                                                                         | Leaflet Maps                                                                                                                     |
+| 1 Chart Library                                                                           | 2 Chart Libraries                                                                                                                |
+| -                                                                                         | Multiple Navbar & Menu Options                                                                                                   |
+| -                                                                                         | Starter-kit                                                                                                                      |
+| -                                                                                         | Internationalization support                                                                                                     |
+| -                                                                                         | RTL Support                                                                                                                      |
+| Regular Support                                                                           | Priority Support                                                                                                                 |
+| Detailed Documentation                                                                    | Detailed Documentation                                                                                                           |
+
+## Documentation 📜
+
+Check out our live [Documentation](https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/)
+
+## Browser Support 🖥️
 
 At present, we officially aim to support the last two versions of the following browsers:
 
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
+- Chrome (latest)
+- FireFox (latest)
+- Safari (latest)
+- Microsoft Edge (latest)
+- Opera (latest)
 
-## Resources
+## Useful Links 🎁
 
-- Demo: <https://demos.creative-tim.com/material-dashboard/pages/dashboard.html>
-- Download Page: <https://www.creative-tim.com/product/material-dashboard>
-- Documentation: <https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html>
-- License Agreement: <https://www.creative-tim.com/license>
-- PRO Version: <https://www.creative-tim.com/product/material-dashboard-pro>
-- Support: <https://www.creative-tim.com/contact-us>
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/material-dashboard/issues)
-- [Material Kit](https://www.creative-tim.com/product/material-kit?ref=github-md-free) - For Front End Development
-- [Nepcha Analytics](https://nepcha.com?ref=readme) - Analytics tool for your website
+- [Freebies](https://themeselection.com/products/category/download-free-admin-templates/)
+- [Download Free Admin Templates](https://themeselection.com/products/category/download-free-admin-templates/)
+- [Bootstrap 5 CheatSheet](https://bootstrap-cheatsheet.themeselection.com/)
 
-## Reporting Issues
+## Support 👨‍💻
 
-We use GitHub Issues as the official bug tracker for the Material Dashboard. Here are some advices for our users that want to report an issue:
+We use GitHub issues as support tickets to manage Item support.
 
-1. Make sure that you are using the latest version of the Material Dashboard. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+1. In order to raise the GitHub issue, you must have a github account. [Raise a Issue](https://github.com/themeselection/sneat-html-admin-template-free/issues)
 
-## Upgrade to Premium version
+## License ©
 
-Are you looking for more components? Please check our Premium Version of Material Dashboard [here](https://www.creative-tim.com/product/material-dashboard-pro/)
+- Copyright © [ThemeSelection](https://themeselection.com/)
+- Licensed under [MIT](https://github.com/themeselection/sneat-html-admin-template-free/blob/master/LICENSE.md)
 
-## Technical Support or Questions
+## Contributing 🦸
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
+Contribution are always welcome and recommended! Here is how:
 
-## Licensing
+- Fork the repository ([here is the guide](https://docs.github.com/en/get-started/quickstart/fork-a-repo)).
+- Clone to your machine `git clone https://github.com/YOUR_USERNAME/REPO_URL` Make your changes
+- Create a pull request
 
-- Copyright 2024 Creative Tim (https://www.creative-tim.com/)
-- Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
+### Contribution Requirements 🧰
 
-## Useful Links
+- When you contribute, you agree to give a non-exclusive license to ThemeSelection to use that contribution in any context as we (ThemeSelection) see appropriate.
+- If you use content provided by another party, it must be appropriately licensed using an open source license.
+- Contributions are only accepted through Github pull requests.
+- Finally, contributed code must work in all supported browsers.
 
-- [More products](https://www.creative-tim.com/templates?ref=readme-sudp) from Creative Tim
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-sudp) from Creative Tim
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-sudp) (earn money)
-- [Bundles](https://www.creative-tim.com/bundles)
-- [Material Design](https://www.creative-tim.com/design-system/material)
-- [Get Discount](https://www.creative-tim.com/coupon)
+## Creators 😇
 
-##### Social Media
+- [ThemeSelection](https://themeselection.com)
 
-Twitter: <https://twitter.com/CreativeTim>
+## Changelog 📆
 
-Facebook: <https://www.facebook.com/CreativeTim>
+Please refer to the [CHANGELOG](https://themeselection.com/demo/sneat-bootstrap-html-admin-template-free/changelog.html) file. We will add a detailed release notes to each new release.
 
-Dribbble: <https://dribbble.com/creativetim>
+## Social Media 🌍
 
-TikTok: <https://tiktok.com/@creative.tim>
-
-Instagram: <https://instagram.com/creativetimofficial>
+- Twitter : [https://twitter.com/Theme_Selection](https://twitter.com/Theme_Selection)
+- Facebook : [https://www.facebook.com/ThemeSelections/](https://www.facebook.com/ThemeSelections/)
+- Pinterest : [https://pinterest.com/themeselect/](https://pinterest.com/themeselect/)
+- Instagram : [https://www.instagram.com/themeselection/](https://www.instagram.com/themeselection/)
