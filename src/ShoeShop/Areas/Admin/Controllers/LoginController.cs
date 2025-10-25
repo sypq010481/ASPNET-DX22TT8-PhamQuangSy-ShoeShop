@@ -36,8 +36,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             {
                 if (!BCrypt.Net.BCrypt.Verify(password, user.Password))
                 {
-                    TempData["error"] = "Mật khẩu không đúng!";
-                    ModelState.AddModelError("Password", "Mật khẩu không đúng!");
                     return View();
                 }
 
@@ -49,12 +47,8 @@ namespace ShoeShop.Areas.Admin.Controllers
                 _dataContext.Users.Update(user);
                 await _dataContext.SaveChangesAsync();
 
-                TempData["success"] = "Đăng nhập thành công!";
-                ModelState.AddModelError("Password", "Đăng nhập thành công!");
                 return RedirectToAction("Index", "Dashboard");
             }
-            TempData["error"] = "Không tìm thấy tài khoản. Liên hệ người quản trị để được hỗ trợ!";
-            ModelState.AddModelError("Password", "Không tìm thấy tài khoản. Liên hệ người quản trị để được hỗ trợ!");
             return View();
         }
 
@@ -95,10 +89,8 @@ namespace ShoeShop.Areas.Admin.Controllers
                 _dataContext.Users.Update(user);
                 await _dataContext.SaveChangesAsync();
 
-                await _emailService.SendEmailAsync(email, "Đặt lại mật khẩu", $"Mật khẩu mới của bạn là {randomString}. Vui lòng không tiết lộ mật khẩu của bạn cho bất kì ai!");
+                await _emailService.SendEmailAsync(email, "Đặt lại mật khẩu", $"Mật khẩu mới của bạn là {randomString}. Vui lòng không tiết lộ mật khẩu của bạn cho bất kì ai để đảm bảo bảo mật!");
 
-                TempData["success"] = "Vui lòng kiểm tra Email!";
-                ModelState.AddModelError("Email", "Vui lòng kiểm tra Email!");
                 return RedirectToAction("Index", "Login");
             }            
             return View();

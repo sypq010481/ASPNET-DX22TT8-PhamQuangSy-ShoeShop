@@ -33,7 +33,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             ContactModel contact = await _dataContext.Contact.FindAsync(Id);
             _dataContext.Contact.Remove(contact);
             await _dataContext.SaveChangesAsync();
-            TempData["success"] = "Xóa thông tin liên hệ thành công";
             return RedirectToAction("Index");
         }
     }

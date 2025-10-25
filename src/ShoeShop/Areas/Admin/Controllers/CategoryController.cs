@@ -50,19 +50,16 @@ namespace ShoeShop.Areas.Admin.Controllers
             var slug = await _dataContext.Categories.FirstOrDefaultAsync(p => p.Slug == category.Slug);
             if (slug != null)
             {
-                ModelState.AddModelError("", "Danh mục đã có trong database");
                 return View(category);
             }
             if (category.Name == null)
             {
-                TempData["error"] = "Vui lòng nhập tên danh mục!";
                 return View(category);
             }
             //Lưu vào DB
             _dataContext.Add(category);
             await _dataContext.SaveChangesAsync();
 
-            TempData["success"] = "Thêm danh mục thành công";
             return RedirectToAction(nameof(Index));
         }
 
@@ -92,7 +89,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             _dataContext.Update(category);
             await _dataContext.SaveChangesAsync();
 
-            TempData["success"] = "Cập nhật danh mục thành công";
             return RedirectToAction(nameof(Index));
         }
 
@@ -102,7 +98,6 @@ namespace ShoeShop.Areas.Admin.Controllers
 
             _dataContext.Categories.Remove(category);
             await _dataContext.SaveChangesAsync();
-            TempData["success"] = "Danh mục đã được xóa thành công";
             return RedirectToAction("Index");
         }
     }

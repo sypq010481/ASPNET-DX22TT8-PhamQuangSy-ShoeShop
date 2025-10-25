@@ -62,12 +62,10 @@ namespace ShoeShop.Areas.Admin.Controllers
             var slug = await _dataContext.Products.FirstOrDefaultAsync(p => p.Slug == Product.Slug);
             if (slug != null)
             {
-                ModelState.AddModelError("", "Sản phẩm đã có trong database");
                 return View(Product);
             }
             if (Product.Name == null)
             {
-                TempData["error"] = "Vui lòng nhập tên sản phẩm!";
                 return View(Product);
             }
             if (Product.Image != null)
@@ -93,7 +91,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             _dataContext.Add(Product);
             await _dataContext.SaveChangesAsync();
 
-            TempData["success"] = "Thêm sản phẩm thành công";
             return RedirectToAction(nameof(Index));
         }
 
@@ -144,7 +141,6 @@ namespace ShoeShop.Areas.Admin.Controllers
 
             if (product.Image != null)
             {
-                Debug.WriteLine("This is a debug message.");
                 string uploadsDir = Path.Combine(_webHostEnviroment.WebRootPath, "upload/product");
                 //Check đã có folder updoad chưa nếu chưa thì tạo folder mới
                 if (!Directory.Exists(uploadsDir))
@@ -174,8 +170,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             }
             //_dataContext.Update(product);
             await _dataContext.SaveChangesAsync();
-
-            TempData["success"] = "Cập nhật sản phẩm thành công";
             return RedirectToAction(nameof(Index));
         }
 
@@ -193,7 +187,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             }
             _dataContext.Products.Remove(product);
             await _dataContext.SaveChangesAsync();
-            TempData["success"] = "sản phẩm đã được xóa thành công";
             return RedirectToAction("Index");
         }
 
@@ -205,13 +198,10 @@ namespace ShoeShop.Areas.Admin.Controllers
                 .AnyAsync(x => x.ProductId == productsize.ProductId && x.size == productsize.size);
             if (exists)
             {
-                TempData["error"] = "Size này đã tồn tại cho sản phẩm này!";
                 return Redirect(HttpContext.Request.Headers["Referer"]);
             }            
             _dataContext.Add(productsize);
             await _dataContext.SaveChangesAsync();
-
-            TempData["success"] = "Thêm thành công";
             return Redirect(HttpContext.Request.Headers["Referer"]);                                   
         }
 
@@ -235,7 +225,6 @@ namespace ShoeShop.Areas.Admin.Controllers
 
             if (exists)
             {
-                TempData["error"] = "Size này đã tồn tại cho sản phẩm này!";
                 return Redirect(HttpContext.Request.Headers["Referer"]);
             }
 
@@ -244,8 +233,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             productSize.Quantity = productsize.Quantity;
             _dataContext.Update(productSize);
             await _dataContext.SaveChangesAsync();
-
-            TempData["success"] = "Cập nhật thành công";
             return Redirect(HttpContext.Request.Headers["Referer"]);
         }
 
@@ -255,7 +242,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             var product = await _dataContext.ProductSize.FindAsync(Id);            
             _dataContext.ProductSize.Remove(product);
             await _dataContext.SaveChangesAsync();
-            TempData["success"] = "Xóa thành công";
             return Json(product);
         }
     }

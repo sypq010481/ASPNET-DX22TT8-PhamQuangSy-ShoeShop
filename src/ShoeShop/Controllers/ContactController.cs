@@ -36,7 +36,6 @@ namespace ShoeShop.Controllers
             _dataContext.Contact.Add(contact);
             await _dataContext.SaveChangesAsync();
 
-            TempData["success"] = "Cảm ơn bạn!";
             return View("Index");
         }
     }

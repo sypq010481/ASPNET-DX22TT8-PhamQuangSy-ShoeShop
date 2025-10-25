@@ -33,22 +33,16 @@ namespace ShoeShop.Areas.Admin.Controllers
 
             if (Users.Password != Users.ConfirmPassword)
             {
-                TempData["error"] = "Xác nhận mật khẩu không trùng khớp!";
-                ModelState.AddModelError("Password", "Xác nhận mật khẩu không trùng khớp!");
                 return View();
             }
 
             if (checkEmail != null)
             {
-                TempData["error"] = "Email đã tồn tại!";
-                ModelState.AddModelError("Email", "Email đã tồn tại!");
                 return View();
             }
 
             if (checkPhone != null)
             {
-                TempData["error"] = "Số điện thoại đã tồn tại!";
-                ModelState.AddModelError("Phone", "Số điện thoại đã tồn tại!");
                 return View();
             }
 
@@ -59,8 +53,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             Users.Password = BCryptPassword;
             _dataContext.Add(Users);
             await _dataContext.SaveChangesAsync();
-
-            TempData["success"] = "Thêm tài khoản thành công";
             return RedirectToAction(nameof(Index));
         }
 
@@ -88,8 +80,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             {
                 if (checkEmail.Id != id)
                 {
-                    TempData["error"] = "Email đã tồn tại!";
-                    ModelState.AddModelError("Email", "Email đã tồn tại!");
                     return View(Users);
                 }
             }            
@@ -97,8 +87,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             {
                 if (checkPhone.Id != id)
                 {
-                    TempData["error"] = "Số điện thoại đã tồn tại!";
-                    ModelState.AddModelError("Phone", "Số điện thoại đã tồn tại!");
                     return View(Users);
                 }
             }            
@@ -111,27 +99,19 @@ namespace ShoeShop.Areas.Admin.Controllers
                 var hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
                 if (!hasLowerChar.IsMatch(Users.Password) || !hasLowerChar.IsMatch(Users.Password) || !hasLowerChar.IsMatch(Users.Password) || !hasLowerChar.IsMatch(Users.Password) || !hasLowerChar.IsMatch(Users.Password))
                 {
-                    TempData["error"] = "Mật khẩu không hợp lệ!";
-                    ModelState.AddModelError("Password", "Mật khẩu không hợp lệ!");
                     return View(Users);
                 }
                 if (Users.Password.Contains(" "))
                 {
-                    TempData["error"] = "Mật khẩu không được có khoảng trắng!";
-                    ModelState.AddModelError("Password", "Mật khẩu không được có khoảng trắng!");
                     return View(Users);
                 }
                 if (Users.Password != Users.ConfirmPassword)
                 {
-                    TempData["error"] = "Xác nhận mật khẩu không trùng khớp!";
-                    ModelState.AddModelError("Password", "Xác nhận mật khẩu không trùng khớp!");
                     return View(Users);
                 }                
                 bool verifiPassword = BCrypt.Net.BCrypt.Verify(Users.Password, user.Password);
                 if (verifiPassword == true)
                 {
-                    TempData["error"] = "Mật khẩu mới không được trùng với mật khẩu cũ!";
-                    ModelState.AddModelError("Password", "Mật khẩu mới không được trùng với mật khẩu cũ!");
                     return View(Users);
                 }
                 string BCryptPassword = BCrypt.Net.BCrypt.HashPassword(Users.Password);
@@ -156,7 +136,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             user.Updated_at = DateTime.Now;
             await _dataContext.SaveChangesAsync();
 
-            TempData["success"] = "Cập nhật tài khoản thành công";
             return RedirectToAction(nameof(Index));
         }
 
@@ -167,7 +146,6 @@ namespace ShoeShop.Areas.Admin.Controllers
             _dataContext.Users.Remove(user);
             await _dataContext.SaveChangesAsync();
 
-            TempData["success"] = "Danh mục tài khoản thành công";
             return RedirectToAction("Index");
         }
     }

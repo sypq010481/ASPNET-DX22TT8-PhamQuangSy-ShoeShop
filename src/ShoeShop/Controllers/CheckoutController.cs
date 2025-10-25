@@ -42,13 +42,11 @@ namespace ShoeShop.Controllers
                         }
                         else
                         {
-                            TempData["error"] = "Số lượng" + product.Name + "trong kho không đủ!";
                             return RedirectToAction("Index", "Cart");
                         }
                     }
                     else
                     {
-                        TempData["error"] = "Không tìm thấy sản phẩm!";
                         HttpContext.Session.Remove("cart");
                         return RedirectToAction("Index", "Cart");
                     }
@@ -103,7 +101,6 @@ namespace ShoeShop.Controllers
                         }
                         else
                         {
-                            TempData["error"] = "Số lượng sản phẩm " + product.Name + " trong kho không đủ!";
                             return RedirectToAction("Index", "Cart");
                         }
                     }
@@ -124,7 +121,6 @@ namespace ShoeShop.Controllers
             switch (paymentmethod)
             {
                 case "1": //Thanh toán tại cửa hàng    
-                    TempData["success"] = "Đặt hàng thành công, đơn hàng của bạn đã được giữ lại tại cửa hàng!";
                     return RedirectToAction("Index", "Approve");                    
                 case "2": //Momo
                     var response = await _momoService.CreatePaymentAsync(order);                    
@@ -133,7 +129,6 @@ namespace ShoeShop.Controllers
                     var url = _vnPayService.CreatePaymentUrl(order, HttpContext);                    
                     return Redirect(url);
                 default:
-                    TempData["error"] = "Bạn chưa chọn phương thức thanh toán!";
                     return View();
             }
         }
