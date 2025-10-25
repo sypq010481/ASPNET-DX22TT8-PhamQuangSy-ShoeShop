@@ -1,12 +1,12 @@
 ﻿@{
-	ViewData["Title"] = "Detail Products";
+	ViewData["Title"] = "Detail Products";	
+	var size = ViewBag.Size as List<ShoeShop.Models.ProductSizeModel>;
 }
-
 <div class="breadcrumbs">
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<p class="bread"><span><a href="/">Trang chủ</a></span> / <span><a href="/Product">Sản phẩm</a></span> / <span>Chi tiết sản phẩm</span></p>
+				<p class="bread"><span><a href="/">Trang chủ</a></span> / <span><a href="/Product">Sản phẩm</a></span> / <span>@Model.Name</span></p>
 			</div>
 		</div>
 	</div>
@@ -17,44 +17,24 @@
 	<div class="container">
 		<div class="row row-pb-lg product-detail-wrap">
 			<div class="col-sm-8">
-				<div class="owl-carousel">
+				<div >
 					<div class="item">
 						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="~/assets/images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							<a href="#" class="prod-img">								
+								<img src="@Url.Content("~/upload/product/" + @Model.ImageUrl)" class="img-fluid" alt="Free html5 bootstrap 4 template">
 							</a>
 						</div>
 					</div>
-					<div class="item">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="~/assets/images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="~/assets/images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="~/assets/images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 			<div class="col-sm-4">
 				<div class="product-desc">
-					<h3>Women's Boots Shoes Maca</h3>
-					<form action="#">
+					<h3>@Model.Name</h3>
+					<form asp-controller="Cart" asp-action="AddToCart" asp-route-Id="@Model.Id" asp-route-Name="@Model.Name" asp-route-Price="@Model.Price" asp-route-imageUrl="@Model.ImageUrl">
 						<input type="hidden" name="productId" id="productId" value="1">
 						<p class="price">
-							<span>680.000 đ</span>
+							<span>@Model.Price.ToString("#,0") đ</span>
 							<span class="rate">
 								<i class="icon-star-full"></i>
 								<i class="icon-star-full"></i>
@@ -63,21 +43,8 @@
 								<i class="icon-star-half"></i>							
 							</span>
 						</p>
-						<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small
-							line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-						<div class="size-wrap">
-							<div class="block-26 mb-2">
-								<h4>Size</h4>
-								<ul id="size-options">
-									<li><a href="#" data-size="7">7</a></li>
-									<li><a href="#" data-size="7.5">7.5</a></li>
-									<li><a href="#" data-size="8">8</a></li>
-									<li><a href="#" data-size="8.5">8.5</a></li>
-									<li><a href="#" data-size="9">9</a></li>
-									<li><a href="#" data-size="9.5">9.5</a></li>
-								</ul>
-								<input type="hidden" name="size" id="selected-size" value="">
-							</div>						
+						<p>@Model.Description</p>
+						<div class="size-wrap">			
 						</div>
 						<div class="input-group mb-4">
 							<span class="input-group-btn">
@@ -94,8 +61,15 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-12 text-center">
-								<p class="addtocart">									
-									<button type="submit" class="btn btn-primary btn-addtocart icon-shopping-cart"> <span style="font-family:  'Montserrat', Arial, sans-serif;">Thêm vào giỏ hàng</span></button>
+								<p class="addtocart">	
+									@if (Model.Quantity > 0)
+									{
+										<button type="submit" class="btn btn-primary btn-addtocart icon-shopping-cart"> <span style="font-family:  'Montserrat', Arial, sans-serif;">Thêm vào giỏ hàng</span></button>
+									} 
+									else
+									{
+										<button type="button" class="btn btn-danger btn-addtocart icon-shopping-cart"> <span style="font-family:  'Montserrat', Arial, sans-serif;">Hết hàng</span></button>
+									}
 								</p>
 							</div>
 						</div>
@@ -118,15 +92,7 @@
 
 							<div class="tab-content" id="pills-tabContent">
 								<div class="tab-pane border fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-									<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-									<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-									<ul>
-										<li>The Big Oxmox advised her not to do so</li>
-										<li>Because there were thousands of bad Commas</li>
-										<li>Wild Question Marks and devious Semikoli</li>
-										<li>She packed her seven versalia</li>
-										<li>tial into the belt and made herself on the way.</li>
-									</ul>
+									@Model.Content
 								</div>
 							</div>
 						</div>

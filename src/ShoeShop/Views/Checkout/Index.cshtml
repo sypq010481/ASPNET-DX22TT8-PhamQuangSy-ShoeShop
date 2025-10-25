@@ -35,54 +35,33 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="cart-detail">
-									<h2 class="text-center">Thông tin mua hàng</h2>
-									<ul>
-										<li>
-											<span>Tạm tính</span> <span>100.000 đ</span>
-											<ul>
-												<li><span style="text-indent: 2em;">1 x Product Name</span> <span>50.000 đ</span></li>
-												<li><span style="text-indent: 2em;">1 x Product Name</span> <span>50.000 đ</span></li>
-											</ul>
-										</li>
-										<li><span>Phí vận chuyển</span> <span>0 đ</span></li>
-										<li><span>Giảm giá</span> <span>0 đ</span></li>
-										<li><span>Tổng giá tiền</span> <span>500.000 đ</span></li>
-									</ul>
-								</div>
-							</div>
-						</div>						
-					</div>
+				<div class="row">					
 					<div class="col-md-12">
-						<form method="post" class="colorlib-form">
+						<form method="post" class="colorlib-form" asp-action="Index" asp-controller="Checkout">
 							<h2 class="text-center">Thông tin thanh toán</h2>
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
 										<label for="fname">Họ và tên</label>
-										<input type="text" id="name" class="form-control" placeholder="Họ và tên">
+										<input type="text" id="name" class="form-control" placeholder="Họ và tên" name="name">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="phone">Số điện thoại</label>
-										<input type="text" id="phone" class="form-control" placeholder="Số điện thoại">
+										<input type="text" id="phone" class="form-control" placeholder="Số điện thoại" name="phone">
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="email">Email</label>
-										<input type="text" id="email" class="form-control" placeholder="Email">
+										<input type="text" id="email" class="form-control" placeholder="Email" name="email">
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
 										<label for="address">Địa chỉ nhận hàng</label>
-										<input type="text" id="address" class="form-control" placeholder="Địa chỉ nhận hàng">
+										<input type="text" id="address" class="form-control" placeholder="Địa chỉ nhận hàng" name="address">
 									</div>
 								</div>
 							</div>
@@ -91,24 +70,26 @@
 							<div class="row text-center">
 								<div class="col-md-4">
 									<div class="radio">
-										<label><input type="radio" name="optradio"> Ví điện tử Momo</label>
+										<label><input type="radio" value="2" name="paymentmethod"> Ví điện tử Momo</label>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="radio">
-										<label><input type="radio" name="optradio"> Thanh toán VNPay</label>
+										<label><input type="radio" value="3" name="paymentmethod"> Thanh toán VNPay</label>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="radio">
-										<label><input type="radio" name="optradio"> Thanh toán khi nhận hàng (COD)</label>
+										<label><input type="radio" value="1" name="paymentmethod"> Thanh toán khi nhận hàng (COD)</label>
 									</div>
 								</div>
 							</div>
 							</br>
+							<input type="hidden" name="subtotal" value="@(Context.Session.GetInt32("subtotal"))">							
+							<input type="hidden" name="total" value="@(Context.Session.GetInt32("total"))">
 							<div class="row">
 								<div class="col-md-12 text-center">
-									<p><a href="#" class="btn btn-primary">Thanh toán</a></p>
+									<p><button type="submit" class="btn btn-primary">Thanh toán</button></p>
 								</div>
 							</div>
 						</form>

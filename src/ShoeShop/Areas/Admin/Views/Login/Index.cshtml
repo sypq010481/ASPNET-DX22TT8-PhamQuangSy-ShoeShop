@@ -58,20 +58,20 @@
                     <h4 class="mb-2">Chào mừng bạn trở lại! 👋</h4>
                     <p class="mb-4">Vui lòng nhập thông tin đăng nhập của bạn</p>
 
-                    <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                    <form id="formAuthentication" class="mb-3" method="post" asp-action="Index">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email or Username</label>
+                            <label for="email" class="form-label">Email or Phone</label>
                             <input type="text"
                                    class="form-control"
-                                   id="email"
-                                   name="email-username"
+                                   id="username"
+                                   name="username"                                   
                                    placeholder="Enter your email or username"
                                    autofocus />
                         </div>
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
                                 <label class="form-label" for="password">Mật khẩu</label>
-                                <a href="auth-forgot-password-basic.html">
+                                <a asp-action="ForgotPassword" asp-controller="Login">
                                     <small>Quên mật khẩu?</small>
                                 </a>
                             </div>

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Main
  */
 
@@ -116,3 +116,88 @@ let menu, animate;
   // Auto update menu collapsed/expanded based on the themeConfig
   window.Helpers.setCollapsed(true, false);
 })();
+
+
+  window.openPopupEdit = function (id, size, quantity) {
+    $.ajax({
+        url: '/Admin/Product/EditModal',
+        data: { Id: id, size: size, Quantity: quantity },
+        dataType: 'json',
+        type: "GET",
+        success: function (data) {
+
+            $("#ImageId").val(data.id);
+            $("#sizeBackdrop").val(data.size);
+            $("#quantityBackdrop").val(data.quantity);
+
+            var modal = new bootstrap.Modal(document.getElementById("updateSize"));
+            modal.show();
+        }
+    });
+  }
+
+window.openPopupEditOrder = function (id, productid, quantity, total) {
+    $.ajax({
+        url: '/Admin/Order/EditModal',
+        data: { Id: id, ProductId: productid, Quantity: quantity, Total: total },
+        dataType: 'json',
+        type: "GET",
+        success: function (data) {            
+            $("#orderid").val(data.id);
+            $("#quantityOrder").val(data.quantity);
+            var $select = $("#productIdOrder");
+            $select.empty(); // clear option cũ
+
+            data.products.forEach(item => {
+                // xác định selected ngay khi append
+                var selected = item.value === data.productid ? "selected" : "";
+                $select.append(`<option value="${item.value}" ${selected}>${item.text}</option>`);
+            });
+
+            // set value + trigger change cho select2
+            $select.val(data.productid).trigger('change');
+            $("#priceOrder").val(data.total);
+
+            var modal = new bootstrap.Modal(document.getElementById("updateOrder"));
+            modal.show();
+        }
+    });
+}
+
+window.onDeleteProductImage = function (id) {    
+    $.ajax({
+        url: '/Admin/Product/DeleteModal', //additional parameters
+        data: { Id: id },
+        dataType: 'json',
+        type: "POST",
+        success: function (data) {
+            window.location.reload()
+        }
+    });
+}
+
+window.onDeleteOrderDetail = function (id) {
+    $.ajax({
+        url: '/Admin/Order/DeleteModal', //additional parameters
+        data: { Id: id },
+        dataType: 'json',
+        type: "POST",
+        success: function (data) {
+            window.location.reload()
+        }
+    });
+}
+
+window.openCreateOrderDetail = function (id) {
+    $.ajax({
+        url: '/Admin/Order/CreateModal', //additional parameters
+        data: { Id: id },
+        dataType: 'json',
+        type: "POST",
+        success: function (data) {
+            $("#orderIdDetail").val(data.Id);
+            var modal = new bootstrap.Modal(document.getElementById("createOrder"));
+            modal.show();
+        }
+    });
+}

@@ -1,26 +1,54 @@
-﻿@{
-    ViewData["Title"] = "Dashboard";
+﻿@model ShoeShop.Models.UserModel
+@{
+    ViewData["Title"] = "Create Account";
 }
 
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> THÊM DANH MỤC</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> THÊM TÀI KHOẢN</h4>
     <div class="row">
         <div class="col-xl">
             <div class="card mb-4">
                 <div class="card-body">
-                    <form>
+                    <form asp-action="Create" method="post">
                         <div class="mb-3">
-                            <label class="form-label" for="basic-default-fullname">Tên danh mục</label>
-                            <input type="text" class="form-control" id="basic-default-fullname" placeholder="Nhập tên danh mục" />
+                            <label class="form-label" for="basic-default-fullname">Họ và tên</label>
+                            <input type="text" class="form-control" id="basic-default-fullname" placeholder="Vui lòng nhập tên" asp-for="Name" />
+                        </div>                        
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Số điện thoại</label>
+                            <input type="text" class="form-control" id="basic-default-phone" placeholder="Vui lòng nhập số điện thoại" asp-for="Phone" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Email</label>
+                            <input type="text" class="form-control" id="basic-default-email" placeholder="Vui lòng nhập email" asp-for="Email" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Mật khẩu</label>
+                            <input type="password"
+                                   id="password"
+                                   class="form-control"
+                                   name="password"
+                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                   aria-describedby="password" asp-for="Password" />
+                        </div>     
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Xác nhận mật khẩu</label>
+                            <input type="password"
+                                   id="confirmPassword"
+                                   class="form-control"
+                                   name="confirmPassword"
+                                   placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                   aria-describedby="confirmPassword" asp-for="ConfirmPassword" />
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">Trạng thái</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input float-start" type="checkbox" role="switch" checked />
-                            </div>
+                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" asp-for="Actived">
+                                <option value="0">Tắt</option>
+                                <option value="1">Bật</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Tạo mới</button>
-                        <a href="@Url.Action("Index", "Category")" class="btn btn-outline-secondary">Trở về</a>
+                        <a href="@Url.Action("Index", "Account")" class="btn btn-outline-secondary">Trở về</a>
                     </form>
                 </div>
             </div>

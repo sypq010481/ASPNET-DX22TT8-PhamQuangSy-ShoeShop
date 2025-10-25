@@ -1,0 +1,33 @@
+﻿@model ShoeShop.Models.OrderDetailModel
+<div class="modal fade" id="updateOrder" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog">
+        <form class="modal-content" method="post" asp-controller="Order" asp-action="EditModal" enctype="multipart/form-data" id="frmUpdateOrderDetail">
+            <div class="modal-header">
+                <h5 class="modal-title" id="backDropModalTitle">Sửa thông tin đơn hàng</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-2">
+                    <input type="hidden" value="" id="orderid" name="Id" />
+                    <div class="mb-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Sản phẩm</label>
+                        <select class="form-select" id="productIdOrder" aria-label="Default select example" asp-for="ProductId" asp-items="ViewBag.products"></select>                        
+                    </div>
+                    <div class="col mb-0">
+                        <label for="quantityBackdrop" class="form-label">Số lượng</label>
+                        <input type="text" id="quantityOrder" class="form-control" asp-for="Quantity" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                    Đóng
+                </button>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>

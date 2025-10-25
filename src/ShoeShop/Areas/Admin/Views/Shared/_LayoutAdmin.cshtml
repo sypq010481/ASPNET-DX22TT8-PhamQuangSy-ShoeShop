@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    @if (ViewData["Title"] == "Login Admin")
+    @if (ViewData["Title"] == "Login Admin" || ViewData["Title"] == "Forgot Password")
     {
         @RenderBody()        
     }
@@ -64,5 +64,23 @@
     <script src="~/assets/admin/assets/js/ui-modals.js"></script>
     <script src="~/assets/admin/assets/js/dashboards-analytics.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script>
+        $('#updateSize').on('hidden.bs.modal', function () {
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+    </script>
+    <script>
+        $('#createOrder').on('hidden.bs.modal', function () {
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+    </script>
+    <script>
+        $('#updateOrder').on('hidden.bs.modal', function () {
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
+        });
+    </script>
 </body>
 </html>

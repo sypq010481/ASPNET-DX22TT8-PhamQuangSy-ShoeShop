@@ -6,9 +6,9 @@
 					<div id="colorlib-logo"><a href="/">Shoe Shop</a></div>
 				</div>
 				<div class="col-sm-5 col-md-3">
-					<form action="#" class="search-wrap">
+					<form action="javascript:searchProduct()" class="search-wrap">
 						<div class="form-group">
-							<input type="search" class="form-control search" placeholder="Tìm kiếm">
+							<input type="search" class="form-control search" placeholder="Tìm kiếm" id="search">
 							<button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
 						</div>
 					</form>
@@ -21,15 +21,12 @@
 						<li class="has-dropdown">
 							<a asp-controller="Product" asp-action="Index">Sản phẩm</a>
 							<ul class="dropdown">								
-								<li><a href="/">Nike</a></li>
-								<li><a href="/">Adidas</a></li>
-								<li><a href="/">Puma</a></li>
-								<li><a href="/">Converse</a></li>
+								<vc:categories></vc:categories>
 							</ul>
 						</li>						
 						<li><a href="/About">Giới thiệu</a></li>
 						<li><a href="/Contact">Liên hệ</a></li>
-						<li class="cart"><a asp-action="Index" asp-controller="Cart"><i class="icon-shopping-cart"></i> Giỏ hàng [0]</a></li>
+						<li class="cart"><a asp-action="Index" asp-controller="Cart"><i class="icon-shopping-cart"></i> Giỏ hàng [@ViewData["CountItemCart"]]</a></li>
 					</ul>
 				</div>
 			</div>
@@ -58,3 +55,17 @@
 		</div>
 	</div>
 </nav>
+
+<script>
+	function searchProduct() {
+		var params = new window.URLSearchParams(window.location.search);
+		var search = $('#search').val();		
+		var category = params.get('category');
+		
+		if (category === 'null' || category === null) {
+			category = "";
+		}
+
+		window.location.href = '/Product?category=' + category + '&search=' + search;
+	}
+</script>

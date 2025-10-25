@@ -114,3 +114,6 @@ Vậy là bạn đã cài đặt thành công SQL Server Management Studio rồi
             "ConnectedDb": "< Connection_String >"
         },
 
+# Thông tin liên lạc 
+- Tên: Phạm Quang Sỹ
+- Email: sypq010481@tvu-onschool.edu.vn

@@ -6,6 +6,15 @@ Tuần 1:
 	
 Tuần 2:
 	+ Ráp giao diện trang quản trị
-	  - Login
-	  - Danh mục
-	  - Sản phẩm	
+	+ Thêm xóa sửa danh mục
+	+ Thêm xóa sửa sản phẩm
+	+ đăng nhập
+
+Tuần 3:
+	+ Thêm xóa sửa tài khoản
+	+ Thêm xóa sửa đơn hàng
+	+ Hiển thị sản phẩm
+	+ tìm kiếm
+	+ quên mật khẩu
+	+ giỏ hàng
+	+ thanh toán	  	

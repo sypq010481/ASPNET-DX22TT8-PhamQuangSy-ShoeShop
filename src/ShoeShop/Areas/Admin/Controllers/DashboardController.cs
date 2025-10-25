@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShoeShop.Repository;
 
 namespace ShoeShop.Areas.Admin.Controllers
 {
@@ -8,6 +9,13 @@ namespace ShoeShop.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
+
+            var name = HttpContext.Session.GetString("Username");
+
+            if (string.IsNullOrEmpty(name))
+            {
+                return RedirectToAction("Index", "Login");
+            }
             return View();
         }
     }

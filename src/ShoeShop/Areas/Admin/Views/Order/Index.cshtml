@@ -1,32 +1,69 @@
-﻿@{
-    ViewData["Title"] = "Category Admin";
+﻿@model IEnumerable<ShoeShop.Models.OrderModel>
+@{
+    ViewData["Title"] = "Order Admin";
 }
 
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> DANH MỤC SẢN PHẨM</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> ĐƠN HÀNG</h4>
     <div class="card">        
         <div class="card-body">            
             <div class="demo-inline-spacing">
-                <a href="/Admin/Category/Create" class="btn btn-dark"><i class="bx bx-plus me-1"></i>Thêm mới</a>
+                <a href="@Url.Action("Create", "Order")" class="btn btn-dark"><i class="bx bx-plus me-1"></i>Thêm mới</a>
             </div>
         </div>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Tên danh mục</th>
-                        <th>Trạng thái</th>
+                        <th>Mã đơn hàng</th>
+                        <th>Tên người đặt hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Tổng tiền</th>
+                        <th>Phương thức thanh toán</th>
+                        <th>Trạng thái đơn hàng</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                        <td><span class="badge bg-label-danger me-1">Bật</span></td>
-                        <td>
-                            <a class="btn btn-danger" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
-                        </td>
-                    </tr>                                      
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td><a href="@Url.Action("Edit", "Order", new { id = order.Id })"><strong>@order.OrderId</strong></a></td>
+                            <td><a href="@Url.Action("Edit", "Order", new { id = order.Id })"><strong>@order.Name</strong></a></td>
+                            <td>@order.Phone</td>
+                            <td>@order.Email</td>
+                            <td>@order.Total.ToString("#,0")</td>                            
+                            @if (order.PaymentMethod == 1)
+                            {
+                                <td>COD</td>
+                            }
+                            else if (order.PaymentMethod == 2)
+                            {
+                                <td>Momo</td>
+                            }
+                            else
+                            {
+                                <td>VNPay</td>
+                            }
+                            @if (order.Status == 1)
+                            {
+                                <td><span class="badge bg-label-warning me-1">Chưa thanh toán</span></td>
+                            }
+                            else if (order.Status == 2)
+                            {
+                                <td><span class="badge bg-label-success me-1">Đã thanh toán</span></td>
+                            }
+                            else
+                            {
+                                <td><span class="badge bg-label-danger me-1">Lỗi</span></td>
+                            }
+                            <td>
+                                <a class="btn btn-dark" href="@Url.Action("Edit", "Order", new { id = order.Id })"><i class="bx bx-pencil me-1"></i> Xem chi tiết</a>
+                                <a class="btn btn-danger" href="@Url.Action("Delete", "Order", new { id = order.Id })"><i class="bx bx-trash me-1"></i> Xóa</a>
+                            </td>
+                        </tr>
+                    }                                                     
                 </tbody>
             </table>
         </div>

@@ -1,29 +1,119 @@
-﻿@{
-    ViewData["Title"] = "Edit Category";
+﻿@model ShoeShop.Models.OrderModel
+@{
+    ViewData["Title"] = "Edit Order Admin";
+    // var Orderdetails = ViewBag.orderDetails as List<ShoeShop.Models.OrderDetailModel> ?? new List<ShoeShop.Models.OrderDetailModel>();
+
 }
 
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> SỬA DANH MỤC</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> SỬA ĐƠN HÀNG</h4>
     <div class="row">
         <div class="col-xl">
             <div class="card mb-4">
                 <div class="card-body">
-                    <form>
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label class="form-label" for="basic-default-fullname">Tên danh mục</label>
-                            <input type="text" class="form-control" id="basic-default-fullname" placeholder="Nhập tên danh mục" />
+                            <label class="form-label" for="basic-default-fullname">Mã đơn hàng</label>
+                            <input type="text" class="form-control" value="@Model.OrderId" readonly />
+                            <input type="hidden" asp-for="OrderId" />                            
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="basic-default-fullname">Trạng thái</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input float-start" type="checkbox" role="switch" checked />
+                            <label class="form-label" for="basic-default-fullname">Tên khách hàng</label>
+                            <input type="text" class="form-control" id="basic-default-fullname" asp-for="Name" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Số điện thoại</label>
+                            <input type="text" class="form-control" id="basic-default-fullname" asp-for="Phone" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Email</label>
+                            <input type="text" class="form-control" id="basic-default-fullname" asp-for="Email" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-default-fullname">Tổng tiền</label>
+                            <input type="text" class="form-control" id="basic-default-fullname" asp-for="Total" asp-format="{0:N0}" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlSelect1" class="form-label">Phương thức thanh toán</label>
+                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" asp-for="PaymentMethod">
+                                <option selected>Chọn phương thức thanh toán</option>
+                                <option value="1">COD</option>
+                                <option value="2">MOMO</option>
+                                <option value="3">VNPay</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlSelect1" class="form-label">Trạng thái đơn hàng</label>
+                            <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example" asp-for="Status">
+                                <option value="1">Chưa thanh toán</option>
+                                <option value="2">Đã thanh toán</option>
+                                <option value="3">Lỗi</option>
+                            </select>
+                        </div>
+
+                        <div class="card mb-5">
+                            <div class="card-body">
+                                <div class="demo-inline-spacing">
+                                    <button type="button"
+                                            id="btnOpenCreateModel"
+                                            class="btn btn-sm btn-dark"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#createOrder"
+                                            onclick="openCreateOrderDetail(@Model.Id)">
+                                        <i class="bx bx-plus me-1"></i>
+                                        THÊM SẢN PHẨM
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="table-responsive text-nowrap">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Số lượng</th>
+                                            <th>Giá tiền</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                        @foreach (var item in ViewBag.orderDetails)
+                                        {
+                                            <tr>
+                                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.Product?.Name</strong></td>
+                                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.Quantity</strong></td>
+                                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.Total.ToString("#,0")</strong></td>
+                                                <td>
+                                                    <button type="button" class="btn btn-sm btn-dark" href="javascript:void(0);"
+                                                            data-id="item.Id"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#updateOrder"
+                                                            onclick="openPopupEditOrder(@item.Id, @item.ProductId, @item.Quantity, @item.Total)">
+                                                        <i class="bx bx-pencil me-1"></i> Sửa
+                                                    </button>
+                                                    <button type="button" class="btn btn-sm btn-danger" data-request-success="window.location.reload()" data-request-confirm="Xóa bản ghi đã chọn ?" onclick="onDeleteOrderDetail(@item.Id)"><i class="bx bx-trash me-1"></i> Xóa</button>
+                                                </td>
+                                            </tr>
+                                        }                                        
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Lưu</button>
-                        <a href="@Url.Action("Index", "Category")" class="btn btn-outline-secondary">Trở về</a>
+                        <a href="@Url.Action("Index", "Order")" class="btn btn-outline-secondary">Trở về</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@await Html.PartialAsync("EditModal", new OrderDetailModel())
+@await Html.PartialAsync("CreateModal", new ShoeShop.Models.OrderDetailModel())
+
+
+<script>
+    document.getElementById("btnOpenCreateModel").addEventListener("click", () => {
+        document.getElementById("orderIdDetail").value = @Model.Id;
+        new bootstrap.Modal(document.getElementById("createOrder")).show();
+    });
+</script>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<ShoeShop.Models.CategoryModel>
+@{
     ViewData["Title"] = "Category Admin";
 }
 
@@ -7,7 +8,7 @@
     <div class="card">        
         <div class="card-body">            
             <div class="demo-inline-spacing">
-                <a href="/Admin/Category/Create" class="btn btn-dark"><i class="bx bx-plus me-1"></i>Thêm mới</a>
+                <a href="@Url.Action("Create", "Category")" class="btn btn-dark"><i class="bx bx-plus me-1"></i>Thêm mới</a>
             </div>
         </div>
         <div class="table-responsive text-nowrap">
@@ -20,13 +21,17 @@
                     </tr>
                 </thead>
                 <tbody class="table-border-bottom-0">
-                    <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                        <td><span class="badge bg-label-danger me-1">Bật</span></td>
-                        <td>
-                            <a class="btn btn-danger" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Xóa</a>
-                        </td>
-                    </tr>                                      
+                    @foreach (var category in Model)
+                    {
+                        <tr>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i><a href="@Url.Action("Edit", "Category", new { id = category.Id })"><strong>@category.Name</strong></a></td>
+                            <td><span class="badge bg-label-@(category.Status == 1 ? "success" : "danger") me-1">@(category.Status == 1 ? "Bật" : "Tắt")</span></td>
+                            <td>
+                                <a class="btn btn-dark" href="@Url.Action("Edit", "Category", new { id = category.Id })"><i class="bx bx-pencil me-1"></i>Chi tiết</a>
+                                <a class="btn btn-danger" href="@Url.Action("Delete", "Category", new { id = category.Id })"><i class="bx bx-trash me-1"></i> Xóa</a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

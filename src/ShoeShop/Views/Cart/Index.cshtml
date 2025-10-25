@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<ShoeShop.Models.CartModel>
+@{
     ViewData["Title"] = "Cart";
 }
 
@@ -40,10 +41,7 @@
 				<div class="product-name d-flex">
 					<div class="one-forth text-left px-4">
 						<span>Sản phẩm</span>
-					</div>
-					<div class="one-eight text-center">
-						<span>Kích cỡ</span>
-					</div>
+					</div>					
 					<div class="one-eight text-center">
 						<span>Giá</span>
 					</div>
@@ -57,76 +55,75 @@
 						<span></span>
 					</div>
 				</div>
+				@foreach (var item in Model)
+				{
 				<div class="product-cart d-flex">
 					<div class="one-forth">
-						<div class="product-img" style="background-image: url(assets/images/item-6.jpg);">
+							<div class="product-img" style="background-image: url('/upload/product/@item.ImageUrl'); border-radius: 15px; width: 150px;"></div>
+						<div class="display-tc" style="margin-left: 10px">
+								<h3>  @item.Name </h3>
 						</div>
+					</div>					
+					<div class="one-eight text-center">
 						<div class="display-tc">
-							<h3>Product Name</h3>
+								<span class="price">@item.Price.ToString("#,0") đ</span>
+						</div>
+					</div>					
+					<div class="one-eight text-center">
+						<div class="display-tc">
+							<form asp-action="UpdateQuantity" method="post"> 
+								<input type="hidden" name="productId" value="@item.Id" />
+								<button type="submit" class="btn btn-primary btn-sm" name="action" value="decrease">-</button>
+								<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="@item.Quantity" min="1" max="10">
+								<button type="submit" class="btn btn-primary btn-sm" name="action" value="increase">+</button>
+							</form>
 						</div>
 					</div>
 					<div class="one-eight text-center">
 						<div class="display-tc">
-							<span class="price">32</span>
+							<span class="price">@($"{(item.Price * item.Quantity):N0} đ")</span>
 						</div>
 					</div>
 					<div class="one-eight text-center">
 						<div class="display-tc">
-							<span class="price">68.000 đ</span>
+								<form asp-action="RemoveCart" method="post">
+									<input type="hidden" name="id" value="@item.Id" />
+									<button type="submit" class="closed" style="border: none"></button>
+								</form>
 						</div>
 					</div>
-					
-					<div class="one-eight text-center">
-						<div class="display-tc">
-							<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="10">
-						</div>
-					</div>
-					<div class="one-eight text-center">
-						<div class="display-tc">
-							<span class="price">120.000 đ</span>
-						</div>
-					</div>
-					<div class="one-eight text-center">
-						<div class="display-tc">
-							<a href="#" class="closed"></a>
-						</div>
-					</div>
-				</div>				
+				</div>	
+				}
 			</div>
 		</div>
 		<div class="row row-pb-lg">
 			<div class="col-md-12">
 				<div class="total-wrap">
 					<div class="row">
-						<div class="col-sm-8">
-							<@* form action="#">
-								<div class="row form-group">
-									<div class="col-sm-9">
-										<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
-									</div>
-									<div class="col-sm-3">
-										<input type="submit" value="Apply Coupon" class="btn btn-primary">
-									</div>
-								</div>
-							</form> *@
+						<div class="col-sm-8">							
 						</div>
 						<div class="col-sm-4">
 							<div class="row">
 								<div class="col-sm-12 text-center">
 									<div class="total">
 										<div class="sub">
-											<p><span>Tạm tính:</span> <span>200.000 đ</span></p>
-											<p><span>Vận chuyển:</span> <span>0</span></p>
-											<p><span>Giảm giá:</span> <span>0</span></p>
+											<p><span>Tạm tính:</span> <span>@ViewData["SubTotal"] đ</span></p>
 										</div>
 										<div class="grand-total">
-											<p><span><strong>Tổng tiền:</strong></span> <span>450.000 đ</span></p>
+											<p><span><strong>Tổng tiền:</strong></span> <span>@ViewData["Total"] đ</span></p>
 										</div>
 									</div>
 								</div>								
 								<div class="col-sm-12 mt-3">
-									<a asp-action="Index" asp-controller="Payment" class="btn btn-success w-100">Đi đến thanh toán</a>
-									@* <a asp-action="Index" asp-controller="Product" class="btn btn-warning w-100">Tiếp tục mua sắm</a> *@
+									@if (Convert.ToInt32(ViewData["CountItemCart"]) > 0)
+									{
+										<a asp-action="Index" asp-controller="Checkout" class="btn btn-success w-100">Đi đến thanh toán</a>
+									}
+									else
+									{
+										<a asp-action="Index" asp-controller="Product" class="btn btn-warning w-100">Tiếp tục mua sắm</a>
+									}
+									
 								</div>
 							</div>
 						</div>
@@ -135,4 +132,4 @@
 			</div>
 		</div>				
 	</div>
-</div>
+</div>									
